@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousFolks", "FamousFolks\FamousFolks.csproj", "{C26135C3-ED45-4251-827F-159B50BF86EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousFolks.Tests", "FamousFolks.Tests\FamousFolks.Tests.csproj", "{3BAB9A43-E4DB-4C68-88A9-789220901ABC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C26135C3-ED45-4251-827F-159B50BF86EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26135C3-ED45-4251-827F-159B50BF86EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26135C3-ED45-4251-827F-159B50BF86EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26135C3-ED45-4251-827F-159B50BF86EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAB9A43-E4DB-4C68-88A9-789220901ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAB9A43-E4DB-4C68-88A9-789220901ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAB9A43-E4DB-4C68-88A9-789220901ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAB9A43-E4DB-4C68-88A9-789220901ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
