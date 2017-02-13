@@ -1,5 +1,4 @@
 ﻿using FamousFolks.Models;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -17,9 +16,11 @@ namespace FamousFolks.Controllers
             return View(from m in db.Folks
 
 
-                        where m.ID > 1
+                        where searchTerm == null || m.LastName == searchTerm
                         orderby m.LastName
                         select m);
+
+
 
             //return View(db.Folks.ToList());
 
