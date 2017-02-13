@@ -12,7 +12,7 @@ namespace FamousFolks.Controllers
         private FamousFolksEntities db = new FamousFolksEntities();
 
         // GET: Folks
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm = null)
         {
             return View(from m in db.Folks
 
