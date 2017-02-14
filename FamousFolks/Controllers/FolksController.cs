@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using System.Web.UI.WebControls.Expressions;
 
 namespace FamousFolks.Controllers
 {
@@ -15,34 +14,54 @@ namespace FamousFolks.Controllers
         public ActionResult Index(string searchTerm = null)
         {
 
+            //var innerJoinResult = db.Folks.Join(// outer sequence 
+            //          db.Expertises,  // inner sequence 
+            //          str1 => str1,    // outerKeySelector
+            //          str2 => str2,  // innerKeySelector
+            //          (str1, str2) => str1);
+
+            //foreach (var str in innerJoinResult)
+            //{
+            //    Console.WriteLine("{0} ", str);
+            //}
+
+
+
+            //var query = db.Folks
+            //    .Where(r => searchTerm == null || r.LastName.StartsWith(searchTerm))
+            //    .OrderBy(r => r.LastName)
+            //    .Take(100)
+            //.Select(r => new FolksListViewModel
+            //{
+            //    Id = r.ID,
+            //    FirstName = r.FirstName,
+            //    LastName = r.LastName,
+            //    BirthLocation = r.BirthLocation,
+            //    Bio = r.Bio,
+            //    FolkCount = r.Expertises.Count()
+            //});
+
+
             var query = db.Folks
-                .Where(r => r.ID > 1)
+                .Where(r => searchTerm == null || r.LastName.StartsWith(searchTerm))
                 .OrderBy(r => r.LastName)
+                .Take(100)
             .Select(r => new FolksListViewModel
             {
-                ID = r.ID,
+                Id = r.ID,
                 FirstName = r.FirstName,
                 LastName = r.LastName,
                 BirthLocation = r.BirthLocation,
                 Bio = r.Bio
-
-
             });
 
-
             return View(query);
-            //return View(from m in db.Folks
-
-
-            //            where searchTerm == null || m.LastName == searchTerm
-            //            orderby m.LastName
-            //            select m);
-
-
 
             //return View(db.Folks.ToList());
 
         }
+
+
 
         // GET: Folks/Details/5
         public ActionResult Details(int? id)
