@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.Expressions;
 
 namespace FamousFolks.Controllers
 {
@@ -13,12 +14,29 @@ namespace FamousFolks.Controllers
         // GET: Folks
         public ActionResult Index(string searchTerm = null)
         {
-            return View(from m in db.Folks
+
+            var query = db.Folks
+                .Where(r => r.ID > 1)
+                .OrderBy(r => r.LastName)
+            .Select(r => new FolksListViewModel
+            {
+                ID = r.ID,
+                FirstName = r.FirstName,
+                LastName = r.LastName,
+                BirthLocation = r.BirthLocation,
+                Bio = r.Bio
 
 
-                        where searchTerm == null || m.LastName == searchTerm
-                        orderby m.LastName
-                        select m);
+            });
+
+
+            return View(query);
+            //return View(from m in db.Folks
+
+
+            //            where searchTerm == null || m.LastName == searchTerm
+            //            orderby m.LastName
+            //            select m);
 
 
 

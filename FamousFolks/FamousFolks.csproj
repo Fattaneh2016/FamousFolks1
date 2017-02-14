@@ -204,6 +204,7 @@
     <Compile Include="Models\FolksExpertise.cs">
       <DependentUpon>FamousFolksADO.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FolksListViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
