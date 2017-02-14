@@ -9,6 +9,9 @@
 
 namespace FamousFolks.Models
 {
+    using System;
+    using System.Collections.Generic;
+    
     public partial class Folk
     {
         public int ID { get; set; }
@@ -16,6 +19,5 @@ namespace FamousFolks.Models
         public string LastName { get; set; }
         public string BirthLocation { get; set; }
         public string Bio { get; set; }
-
     }
 }

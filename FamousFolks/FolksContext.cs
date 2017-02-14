@@ -18,4 +18,6 @@ public class FolksContext : DbContext
     }
 
     public System.Data.Entity.DbSet<FamousFolks.Models.Folk> Folks { get; set; }
+
+    public System.Data.Entity.DbSet<FamousFolks.Models.FolksExpertise> FolksExpertises { get; set; }
 }

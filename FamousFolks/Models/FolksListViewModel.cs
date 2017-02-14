@@ -7,6 +7,6 @@
         public string LastName { get; set; }
         public string BirthLocation { get; set; }
         public string Bio { get; set; }
-        public int FolkCount { get; set; }
+
     }
 }

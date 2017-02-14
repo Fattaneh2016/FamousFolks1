@@ -6,131 +6,107 @@ using System.Web.Mvc;
 
 namespace FamousFolks.Controllers
 {
-    public class FolksController : Controller
+    public class FolksExpertisesController : Controller
     {
         private FamousFolksEntities db = new FamousFolksEntities();
 
-
-
-
-        // GET: Folks
-        public ActionResult Index(string searchTerm = null)
+        // GET: FolksExpertises
+        public ActionResult Index()
         {
-
-
-
-            var query = db.Folks
-                .Where(r => searchTerm == null || r.LastName.StartsWith(searchTerm))
-                .OrderBy(r => r.LastName)
-                .Take(100)
-            .Select(r => new FolksListViewModel
-            {
-                Id = r.ID,
-                FirstName = r.FirstName,
-                LastName = r.LastName,
-                BirthLocation = r.BirthLocation,
-                Bio = r.Bio
-            });
-
-            return View(query);
-
-            //return View(db.Folks.ToList());
-
+            return View(db.FolksExpertises.ToList());
         }
 
-
-
-        // GET: Folks/Details/5
+        // GET: FolksExpertises/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Folk folk = db.Folks.Find(id);
-            if (folk == null)
+            FolksExpertise folksExpertise = db.FolksExpertises.Find(id);
+            if (folksExpertise == null)
             {
                 return HttpNotFound();
             }
-            return View(folk);
+            return View(folksExpertise);
         }
 
-        // GET: Folks/Create
+        // GET: FolksExpertises/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Folks/Create
+        // POST: FolksExpertises/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FirstName,LastName,BirthLocation,Bio")] Folk folk)
+        public ActionResult Create([Bind(Include = "IdFolkExp,ExpId,Id")] FolksExpertise folksExpertise)
         {
             if (ModelState.IsValid)
             {
-                db.Folks.Add(folk);
+                db.FolksExpertises.Add(folksExpertise);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(folk);
+            return View(folksExpertise);
         }
 
-        // GET: Folks/Edit/5
+        // GET: FolksExpertises/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Folk folk = db.Folks.Find(id);
-            if (folk == null)
+            FolksExpertise folksExpertise = db.FolksExpertises.Find(id);
+            if (folksExpertise == null)
             {
                 return HttpNotFound();
             }
-            return View(folk);
+            return View(folksExpertise);
         }
 
-        // POST: Folks/Edit/5
+        // POST: FolksExpertises/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FirstName,LastName,BirthLocation,Bio")] Folk folk)
+        public ActionResult Edit([Bind(Include = "IdFolkExp,ExpId,Id")] FolksExpertise folksExpertise)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(folk).State = EntityState.Modified;
+                db.Entry(folksExpertise).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(folk);
+            return View(folksExpertise);
         }
 
-        // GET: Folks/Delete/5
+        // GET: FolksExpertises/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Folk folk = db.Folks.Find(id);
-            if (folk == null)
+            FolksExpertise folksExpertise = db.FolksExpertises.Find(id);
+            if (folksExpertise == null)
             {
                 return HttpNotFound();
             }
-            return View(folk);
+            return View(folksExpertise);
         }
 
-        // POST: Folks/Delete/5
+        // POST: FolksExpertises/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Folk folk = db.Folks.Find(id);
-            if (folk != null) db.Folks.Remove(folk);
+            FolksExpertise folksExpertise = db.FolksExpertises.Find(id);
+            db.FolksExpertises.Remove(folksExpertise);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
