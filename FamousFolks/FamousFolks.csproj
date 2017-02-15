@@ -51,6 +51,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -219,7 +220,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\Abraham.jpg" />
     <Content Include="img\Famous.png" />
+    <Content Include="img\Gallileo.jpg" />
+    <Content Include="img\Orville_Wright_1905-crop.jpg" />
+    <Content Include="img\Shakespeare.jpg" />
+    <Content Include="img\Wilbur_Wright-crop.jpg" />
     <Content Include="Models\FamousFolksADO.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>FamousFolksADO.edmx</DependentUpon>
@@ -313,6 +319,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>

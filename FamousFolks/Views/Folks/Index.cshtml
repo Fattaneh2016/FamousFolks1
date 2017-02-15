@@ -5,26 +5,21 @@
 }
 
 
-
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
-
 <link href="~/Content/MyStyle.css" rel="stylesheet" />
 
 <div id="jumbo" class="jumbotron">
 
-    <h2 class="text-center">Famous Folks</h2>
     <br />
 
 </div>
+<h2 class="text-center">Famous Folks</h2>
 <form method="get">
 
-    <input type="search" name="searchTerm" />
-    <input type="submit" Value="Search By Name" class="btn btn-primary" />
+    @*<input type="search" name="searchTerm" />*@
+    <input id="mySubmit" type="submit" Value="Search All" class="btn btn-primary" />
 
-    <label class="checkbox">
-        <input type="checkbox" id="expertise" value="expertise" name="SearchPolitics">Politics
+    <label class="checkbox-inline">
+        <input type="checkbox" id="expertise" value="expertise" name="searchPolitics">Politician
     </label>
 
 
@@ -45,7 +40,9 @@
         <th>
             @Html.DisplayNameFor(model => model.BirthLocation)
         </th>
-
+        <th>
+            @Html.DisplayNameFor(model => model.Expertise)
+        </th>
         <th id="myBioh" style="display:none">
             @Html.DisplayNameFor(model => model.Bio)
         </th>
@@ -65,17 +62,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.BirthLocation)
             </td>
+            <td>
 
+                @Html.DisplayFor(modelItem => item.Expertise)
+            </td>
             <td id="myBio" style="display: none">
                 @Html.DisplayFor(modelItem => item.Bio)
             </td>
 
-
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-                </td>*@
         </tr>
     }
 
@@ -86,10 +80,21 @@
 
         $("tr").click(function () {
 
-            $("tr:eq(" + this.rowIndex + " ) td:eq(3)").toggle();
-
+            $("tr:eq(" + this.rowIndex + " ) td:eq(4)").toggle();
 
         });
+
+        $('input[type="checkbox"]').click(function () {
+            if ($(this).prop("checked") === true) {
+                $("#mySubmit").val("Just Politician");
+
+            }
+            else if ($(this).prop("checked") === false) {
+                $("#mySubmit").val("Search All");
+
+            }
+        });
+
     });
 
 
